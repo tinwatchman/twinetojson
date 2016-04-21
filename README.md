@@ -1,9 +1,9 @@
 TWINE TO JSON
 =============
 
-> A basic utility library / script to convert a Twine story file into a more 
-> easily parseable JSON format. Useable as both a Node library and as a command
-> line tool.
+> A basic utility library / script to convert a [Snowman](https://bitbucket.org/klembot/snowman-2)-formatted 
+> [Twine](https://twinery.org/) story file into a more easily parseable JSON 
+> format. Useable as both a Node library and as a command line tool.
 
 ## Install
 
@@ -30,7 +30,7 @@ twineToJSON({
    renderMarkdown: true,
    writeToFile: true,
    prettyPrint: false,
-   callback: function(err, story) { // optional }
+   callback: function(err, story) { /* optional */ }
 }).then(function(story) {
     // ...
 }).catch(function(err) {
@@ -39,6 +39,8 @@ twineToJSON({
 ```
 
 ## twineToJSON(options)
+
+**Returns:** `Promise`
 
 ### options
 
@@ -90,6 +92,12 @@ false.
 Type: `Function`
 
 Standard callback function for those who don't like Promises. Optional.
+
+## Tests
+
+``` bash
+npm test
+```
 
 ## License
 
