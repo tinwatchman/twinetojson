@@ -1,0 +1,40 @@
+{
+    "ifid": "B3593454-5ADC-459D-982D-31E4A601EF01",
+    "name": "My First Story",
+    "startNode": 1,
+    "creator": "Twine",
+    "creatorVersion": "2.0.11",
+    "format": "Snowman",
+    "passages": [
+        {
+            "pid": 1,
+            "name": "My First Room",
+            "text": "So this is the first room in the story! It's a mess! Just like all of my rooms are!\n\n* [[My Kitchen<-Go left]] \n* [[Go right->My Bedroom]]\n* [[Go straight|My Bathroom]] ",
+            "links": []
+        },
+        {
+            "pid": 2,
+            "name": "My Kitchen",
+            "text": "Here's my kitchen! It's a mess!\n\n* [[My First Room<-Go back]] ",
+            "links": []
+        },
+        {
+            "pid": 3,
+            "name": "My Bedroom",
+            "text": "Here's my bedroom! It's also a mess!\n\n* [[Go back->My First Room]]\n<% if (s.isClosetSeen === true) { %>\n* [[Go into closet->My Closet]]\n<% } else { %>\n* [[Go right->My Closet]]\n<% } %>",
+            "links": []
+        },
+        {
+            "pid": 4,
+            "name": "My Bathroom",
+            "text": "Here's my bathroom! It's stinky!\n\n* [[Go back->My First Room]] ",
+            "links": []
+        },
+        {
+            "pid": 5,
+            "name": "My Closet",
+            "text": "This is my closet! It's... fairly clean, actually!\n\n<% s.isClosetSeen = true; %>\n\n* [[Exit->My Bedroom]] ",
+            "links": []
+        }
+    ]
+}

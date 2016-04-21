@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+"use strict";
+
+let program = require("commander");
+let twineToJSON = require("../twine_to_json");
+const _ = require("underscore");
+
+program
+    .version("0.0.1")
+    .option("-i, --in <path>", "path to Twine story file (required)")
+    .option("-o, --out [path]", "path to output file (defaults to current directory)")
+    .option("-c, --ignore-comments", "ignore / do not delete block comments")
+    .option("-m, --leave-markdown", "do not render markdown")
+    .option("-r, --do-not-write", "do not write JSON file to disk")
+    .option("-p, --pretty-print", "format JSON in a human-readable format")
+    .parse(process.argv);
+
+if (!_.has(program, "in") || _.isUndefined(program.in)) {
+    console.error("Input story file required!");
+    process.exit(1);
+}
+var opts = {"in": program.in};
+if (_.has(program, "out")) {
+    opts.out = program.out;
+}
+if (_.has(program, "ignoreComments")) {
+    opts.ignoreComments = true;
+}
+if (_.has(program, "leaveMarkdown")) {
+    opts.renderMarkdown = false;
+}
+if (_.has(program, "doNotWrite")) {
+    opts.writeToFile = false;
+}
+if (_.has(program, "prettyPrint")) {
+    opts.prettyPrint = true;
+}
+
+twineToJSON(opts).then((story) => {
+    console.log("complete!");
+}).catch((err) => {
+    console.error(err);
+});
