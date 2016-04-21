@@ -1,7 +1,7 @@
 {
   "name": "twine_to_json",
   "version": "0.0.1",
-  "description": "Utility script to convert a Snowman-formatted Twine HTML file into a more easily parseable JSON format",
+  "description": "Utility tool to convert a Snowman-formatted Twine HTML file into a more easily parseable JSON format",
   "main": "twine_to_json.js",
   "bin": {
     "twinetojson": "bin/twinetojson"
@@ -11,6 +11,10 @@
   },
   "author": "Jon Stout (www.jonstout.net)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tinwatchman/twinetojson.git"
+  },
   "devDependencies": {
     "jasmine": "^2.4.1"
   },
