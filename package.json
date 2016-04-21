@@ -1,7 +1,7 @@
 {
   "name": "twine_to_json",
   "version": "0.0.1",
-  "description": "Utility tool to convert a Snowman-formatted Twine HTML file into a more easily parseable JSON format",
+  "description": "Converts a Snowman-formatted Twine story file into a more easily parseable JSON format",
   "main": "twine_to_json.js",
   "bin": {
     "twinetojson": "bin/twinetojson"
@@ -14,6 +14,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/tinwatchman/twinetojson.git"
+  },
+  "engines": {
+    "node": ">=5.10.0",
+    "npm": ">=3.8.3"
   },
   "devDependencies": {
     "jasmine": "^2.4.1"

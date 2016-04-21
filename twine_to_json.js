@@ -6,6 +6,24 @@ var readFile = require("./lib/readfile");
 var parsePassages = require("./lib/parser").parsePassages;
 var saveJSON = require("./lib/output");
 
+/**
+ * twineToJSON main function
+ * @param  {Object}  options Options object -- see below for details
+ * @return {Promise}         Promise
+ *
+ * Options:
+ * @param  {String}    in             Path to Twine story file (required)
+ * @param  {String}    out            Path to output JSON file (optional)
+ * @param  {Boolean}   ignoreComments Whether or not to remove block comments
+ *                                    (defaults to false)
+ * @param  {Boolean}   renderMarkdown Whether or not to render markdown
+ *                                    (defaults to true)
+ * @param  {Boolean}   writeToFile    Whether or not to write the JSON file 
+ *                                    to disk (defaults to true)
+ * @param  {Boolean}   prettyPrint    Whether or not to pretty-print JSON
+ *                                    (defaults to false)
+ * @param  {Function}  callback       Callback function (optional)
+ */
 module.exports = function twineToJSON(options) {
     // parse options
     var isWritingToFile = _.has(options, "writeToFile") ? options.writeToFile : true;
