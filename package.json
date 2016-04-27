@@ -15,6 +15,11 @@
     "type": "git",
     "url": "https://github.com/tinwatchman/twinetojson.git"
   },
+  "keywords": [
+    "twine",
+    "json",
+    "snowman"
+  ],
   "engines": {
     "node": ">=5.10.0",
     "npm": ">=3.8.3"

@@ -30,6 +30,9 @@ twineToJSON({
    renderMarkdown: true,
    writeToFile: true,
    prettyPrint: false,
+   ignorePassages: [],
+   transformPassages: [],
+   customTags: [],
    callback: function(err, story) { /* optional */ }
 }).then(function(story) {
     // ...
@@ -86,6 +89,44 @@ Type: `Boolean`
 
 Whether or not to write the JSON file in a human-readable format. Defaults to 
 false.
+
+### ignorePassages
+
+Type: `Array` of Numbers
+
+An array of passage ids (pids) to exclude from processing. Allows certain 
+passages to be skipped over. These passages will not be parsed and will not 
+appear in the final JSON output.
+
+#### Usage
+
+```js
+twineToJSON({
+   ignorePassages: [ 1, 2, 3 ] // ids to ignore
+   // ...
+});
+```
+
+### transformPassages
+
+Type: `Function` or `Array` of Functions
+
+A function or array of functions to apply to a passage. The function(s) will be
+provided with two arguments: `passage` (the `Passage` object) and `story` (the
+`Story` object). Note that any transform functions will be run on the passage
+**before** any other processing or parsing is done!
+
+### customTags
+
+Type: `Array` of Objects
+
+Allows the replacement of custom HTML tags within the passage text. Each object
+specifies the custom tag to replace. It should/can have the following 
+properties:
+
+- **name**: (`String`) the tag's name [required]
+- **swap**: (`String`) an HTML string to swap the tag with. The tag's children 
+    will be appended to the elements in the string.
 
 ### callback
 
