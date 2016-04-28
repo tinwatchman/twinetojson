@@ -22,6 +22,13 @@ var saveJSON = require("./lib/output");
  *                                    to disk (defaults to true)
  * @param  {Boolean}   prettyPrint    Whether or not to pretty-print JSON
  *                                    (defaults to false)
+ * @param  {Array}     ignorePassages List of passage ids to ignore when 
+ *                                    assembling JSON. See README for details.
+ * @param  {Array}  transformPassages Array of functions to apply to the passage
+ *                                    text before parsing. See README for 
+ *                                    details.                         
+ * @param  {Array}     customTags     Array of custom tag objects to apply to 
+ *                                    the passage markup
  * @param  {Function}  callback       Callback function (optional)
  */
 module.exports = function twineToJSON(options) {

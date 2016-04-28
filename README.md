@@ -116,6 +116,28 @@ provided with two arguments: `passage` (the `Passage` object) and `story` (the
 `Story` object). Note that any transform functions will be run on the passage
 **before** any other processing or parsing is done!
 
+#### Usage
+
+```js
+twineToJSON({
+    transformPassages: function(passage, story) {
+        // do something to the passage text here...
+    },
+    // or:
+    transformPassages: [
+        (passage, story) => {
+            // do something to passage here
+        },
+        (passage, story) => {
+            // do something to passage here
+        },
+        (passage, story) => {
+            // etc.
+        }
+    ]
+});
+```
+
 ### customTags
 
 Type: `Array` of Objects
@@ -127,6 +149,21 @@ properties:
 - **name**: (`String`) the tag's name [required]
 - **swap**: (`String`) an HTML string to swap the tag with. The tag's children 
     will be appended to the elements in the string.
+
+#### Usage
+
+```js
+twineToJSON({
+    // ...
+    customTags: [
+        {
+            name: "options",
+            swap: '<div class="options"></div>'
+            // this will take anything within an <options> tag, wrap it in a 
+            // <div> with class 'options', and replace the original tag.
+        }
+    ] 
+});
 
 ### callback
 
