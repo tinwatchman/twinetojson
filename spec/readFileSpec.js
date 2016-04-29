@@ -17,6 +17,11 @@ describe("readFile", function() {
             expect(story.passages.length).toEqual(5);
             expect(story.passages[0].pid).toEqual(1);
             expect(story.passages[0].name).toEqual("My First Room");
+            // check tag support
+            expect(_.contains(story.passages[0].tags, "start")).toBe(true);
+            expect(_.contains(story.passages[0].tags, "room")).toBe(true);
+            expect(_.isArray(story.passages[1].tags)).toBe(true);
+            expect(_.contains(story.passages[1].tags, "room")).toBe(true);
             done();
         }).catch((err) => {
             throw err;

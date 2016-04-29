@@ -1,14 +1,14 @@
 <tw-storydata name="My First Story" startnode="1" creator="Twine" creator-version="2.0.11" ifid="B3593454-5ADC-459D-982D-31E4A601EF01" format="Snowman" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">story.state.isClosetSeen = false;
-</script><tw-passagedata pid="1" name="My First Room" tags="" position="444,78">So this is the first room in the story! It&#39;s a mess! Just like all of my rooms are!
+</script><tw-passagedata pid="1" name="My First Room" tags="start room" position="444,78">So this is the first room in the story! It&#39;s a mess! Just like all of my rooms are!
 
 * [[My Kitchen&lt;-Go left]] 
 * [[Go right-&gt;My Bedroom]]
 * [[Go straight|My Bathroom]] </tw-passagedata>
-<tw-passagedata pid="2" name="My Kitchen" tags="" position="299,249">Here&#39;s my kitchen! It&#39;s a mess!
+<tw-passagedata pid="2" name="My Kitchen" tags="room" position="299,249">Here&#39;s my kitchen! It&#39;s a mess!
 
 * [[My First Room&lt;-Go back]] </tw-passagedata>
-<tw-passagedata pid="3" name="My Bedroom" tags="" position="458,246">Here&#39;s my bedroom! It&#39;s also a mess!
+<tw-passagedata pid="3" name="My Bedroom" tags="room" position="458,246">Here&#39;s my bedroom! It&#39;s also a mess!
 
 * [[Go back-&gt;My First Room]]
 &lt;% if (s.isClosetSeen === true) { %&gt;
@@ -16,7 +16,7 @@
 &lt;% } else { %&gt;
 * [[Go right-&gt;My Closet]]
 &lt;% } %&gt;</tw-passagedata>
-<tw-passagedata pid="4" name="My Bathroom" tags="" position="602,247">Here&#39;s my bathroom! It&#39;s stinky!
+<tw-passagedata pid="4" name="My Bathroom" tags="room" position="602,247">Here&#39;s my bathroom! It&#39;s stinky!
 
 * [[Go back-&gt;My First Room]] </tw-passagedata>
 <tw-passagedata pid="5" name="My Closet" tags="" position="459,397">This is my closet! It&#39;s... fairly clean, actually!
