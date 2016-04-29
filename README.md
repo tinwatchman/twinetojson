@@ -5,6 +5,8 @@ TWINE TO JSON
 > [Twine](https://twinery.org/) story file into a more easily parseable JSON 
 > format. Useable as both a Node library and as a command line tool.
 
+**NOTE: This library is still currently in development! Use at your own risk!**
+
 ## Install
 
 ``` bash
