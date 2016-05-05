@@ -35,6 +35,7 @@ twineToJSON({
    ignorePassages: [],
    transformPassages: [],
    customTags: [],
+   linkFormat: null,
    callback: function(err, story) { /* optional */ }
 }).then(function(story) {
     // ...
@@ -167,6 +168,30 @@ twineToJSON({
     ] 
 });
 ```
+
+### linkFormat
+
+Type: `Function` or `String`
+
+Specifies how to format the links in the passage text. Can be either an 
+[Underscore template string](http://underscorejs.org/#template) or a function. 
+Functions will be given an object with three properties:
+
+* `id`: String representing a generated unique identifier for the link.
+* `label`: String representing the link's intended display text.
+* `passageId`: the `pid` of the passage the link goes to.
+
+#### Usage
+
+```js
+twineToJSON({
+    // ...
+    linkFormat: function(link) {
+      return '<a data-passage="' + link.passageId + '">' + link.label + '</a>';
+    },
+    // or as Underscore template string
+    linkFormat: '<a id="<%=id%>" data-passage="<%=passageId%>"><%=label%></a>'
+});
 
 ### callback
 

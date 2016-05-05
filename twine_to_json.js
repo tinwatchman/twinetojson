@@ -29,6 +29,10 @@ var saveJSON = require("./lib/output");
  *                                    details.                         
  * @param  {Array}     customTags     Array of custom tag objects to apply to 
  *                                    the passage markup
+ * @param  {Function}  linkFormat     Custom link format function or Underscore 
+ *                                    template string. Receives a Link object 
+ *                                    with three properties: id, label and 
+ *                                    passageId.
  * @param  {Function}  callback       Callback function (optional)
  */
 module.exports = function twineToJSON(options) {

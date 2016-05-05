@@ -29,6 +29,29 @@ describe("parser functions", function() {
             expect(result.indexOf("$link1$")).toBeGreaterThan(-1);
             expect(result.indexOf("$link2$")).toBeGreaterThan(-1);
         });
+
+        it("should accept a custom linkFormat function", function() {
+            var testPassage = _.findWhere(testStory.passages, {"name": "My First Room"});
+            var linkFormatRunTimes = 0;
+            var linkFormat = function(link) {
+                linkFormatRunTimes++;
+                return "$" + link.id + "$";
+            };
+            var result = parseLinks(testPassage, testStory, linkFormat);
+            expect(result.indexOf("$1c161af31e61e31bedd6297f978ca31e84532676$")).toBeGreaterThan(-1);
+            expect(result.indexOf("$8e4fe77c1b2b892e60fee08abcb102ddf232b2fb$")).toBeGreaterThan(-1);
+            expect(result.indexOf("$5505e0b3cd81669f1f03b1687c6768787d23db3e$")).toBeGreaterThan(-1);
+            expect(linkFormatRunTimes).toEqual(3);
+        });
+
+        it("should accept a custom linkFormat template string", function() {
+            var testPassage = _.findWhere(testStory.passages, {"name": "My First Room"});
+            var linkFormat = "$<%= id %>$";
+            var result = parseLinks(testPassage, testStory, linkFormat);
+            expect(result.indexOf("$1c161af31e61e31bedd6297f978ca31e84532676$")).toBeGreaterThan(-1);
+            expect(result.indexOf("$8e4fe77c1b2b892e60fee08abcb102ddf232b2fb$")).toBeGreaterThan(-1);
+            expect(result.indexOf("$5505e0b3cd81669f1f03b1687c6768787d23db3e$")).toBeGreaterThan(-1);
+        });
     });
     
     describe("removeComments", function() {
@@ -110,6 +133,4 @@ describe("parser functions", function() {
             expect(passage.text).toEqual("I am noodle pasta lumbago shortening!");
         });
     });
-
-
 });
