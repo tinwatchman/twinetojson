@@ -1,6 +1,6 @@
 {
   "name": "twine_to_json",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Converts a Snowman-formatted Twine story file into a more easily parseable JSON format",
   "main": "twine_to_json.js",
   "bin": {

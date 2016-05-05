@@ -6,7 +6,7 @@ let twineToJSON = require("../twine_to_json");
 const _ = require("underscore");
 
 program
-    .version("0.0.2")
+    .version("0.0.3")
     .option("-i, --in <path>", "path to Twine story file (required)")
     .option("-o, --out [path]", "path to output file (defaults to current directory)")
     .option("-c, --ignore-comments", "ignore / do not delete block comments")
