@@ -192,6 +192,7 @@ twineToJSON({
     // or as Underscore template string
     linkFormat: '<a id="<%=id%>" data-passage="<%=passageId%>"><%=label%></a>'
 });
+```
 
 ### callback
 
